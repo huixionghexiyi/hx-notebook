@@ -1,0 +1,483 @@
+{
+    "root": {
+        "data": {
+            "id": "c1ibjfplz080",
+            "created": 1584977239095,
+            "text": "docker"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "c1ibjkaizc80",
+                    "created": 1584977249067,
+                    "text": "镜像",
+                    "expandState": "collapse",
+                    "layout_mind_offset": {
+                        "x": -12,
+                        "y": 2
+                    }
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c1ibkee1gag0",
+                            "created": 1584977314583,
+                            "text": "获取"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c1ibkiqu7400",
+                            "created": 1584977324064,
+                            "text": "删除"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c1ibkn9c1600",
+                            "created": 1584977333889,
+                            "text": "查看"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c1ibkqa9dwg0",
+                            "created": 1584977340476,
+                            "text": "构建"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c1ibkxnhw3k0",
+                            "created": 1584977356514,
+                            "text": "Dockerfile定制",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c1iblame78g0",
+                                    "created": 1584977384745,
+                                    "text": "COPY"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c1iblccg6qg0",
+                                    "created": 1584977388497,
+                                    "text": "ADD"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c1iblddsz9k0",
+                                    "created": 1584977390756,
+                                    "text": "CMD"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c1ibleb6hz40",
+                                    "created": 1584977392774,
+                                    "text": "ENTRYPOINT"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c1iblojlu3s0",
+                                    "created": 1584977415052,
+                                    "text": "ENV"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c1ibls78pkw0",
+                                    "created": 1584977423011,
+                                    "text": "ARG"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c1iblt3h62g0",
+                                    "created": 1584977424960,
+                                    "text": "VOLUME"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c1iblvpe11c0",
+                                    "created": 1584977430639,
+                                    "text": "EXPOSE"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c1iblx6t40o0",
+                                    "created": 1584977433869,
+                                    "text": "WORKDIR"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c1iblz0bu6g0",
+                                    "created": 1584977437830,
+                                    "text": "USER"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c1ibm1km8ko0",
+                                    "created": 1584977443411,
+                                    "text": "HEALTHCHECK"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c1ibm6dczds0",
+                                    "created": 1584977453856,
+                                    "text": "ONBUILD"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c1ibmhqj2pk0",
+                            "created": 1584977478597,
+                            "text": "Dockerfil多阶段构建"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "c1ibjmbkee80",
+                    "created": 1584977253484,
+                    "text": "容器",
+                    "expandState": "collapse",
+                    "layout_mind_offset": {
+                        "x": -12,
+                        "y": -5
+                    }
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c1ibmtx768o0",
+                            "created": 1584977505122,
+                            "text": "运行"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c1ibmv410ps0",
+                            "created": 1584977507711,
+                            "text": "终止"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c1ibmzynly80",
+                            "created": 1584977518270,
+                            "text": "进入"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c1ibn25beh40",
+                            "created": 1584977523027,
+                            "text": "导入/导出"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c1ibn61696g0",
+                            "created": 1584977531483,
+                            "text": "删除"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "c1ibo5zmtdk0",
+                    "created": 1584977609754,
+                    "text": "网络",
+                    "expandState": "collapse",
+                    "layout_mind_offset": {
+                        "x": -7,
+                        "y": 10
+                    }
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c1iboa2jle00",
+                            "created": 1584977618637,
+                            "text": "外部访问"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c1ibobsuczk0",
+                            "created": 1584977622404,
+                            "text": "容器互连"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c1ibopwig0w0",
+                            "created": 1584977653101,
+                            "text": "配置DNS"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c1iboxyt1i00",
+                            "created": 1584977670654,
+                            "text": "高级网络配置"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "c1ibp2ohz9s0",
+                    "created": 1584977680915,
+                    "text": "Docker Compose",
+                    "layout_mind_offset": {
+                        "x": -11.000012895267048,
+                        "y": 99.99999758084596
+                    }
+                },
+                "children": []
+            },
+            {
+                "data": {
+                    "id": "c1ibjsbqwzk0",
+                    "created": 1584977266555,
+                    "text": "仓库",
+                    "expandState": "collapse",
+                    "layout_mind_offset": {
+                        "x": -426,
+                        "y": -294.9999909893668
+                    }
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c1ibnfjcdko0",
+                            "created": 1584977552173,
+                            "text": "DockerHub"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c1ibnj6a7wo0",
+                            "created": 1584977560090,
+                            "text": "私有仓库"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c1ibnn5s4sg0",
+                                    "created": 1584977568767,
+                                    "text": "私有仓库配置"
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "c1ibnvjc5lc0",
+                    "created": 1584977587001,
+                    "text": "数据管理",
+                    "expandState": "expand",
+                    "layout_mind_offset": {
+                        "x": 559,
+                        "y": 183
+                    }
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c1ibo0erk880",
+                            "created": 1584977597609,
+                            "text": "数据卷"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c1ibo20sx000",
+                            "created": 1584977601118,
+                            "text": "挂在主机目录"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "c1ibpo60u6o0",
+                    "created": 1584977727687,
+                    "text": "安全",
+                    "layout_mind_offset": {
+                        "x": -10,
+                        "y": -38
+                    },
+                    "expandState": "collapse"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c1ibqwbgzqw0",
+                            "created": 1584977823795,
+                            "text": "内核命名空间"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c1ibqz1041s0",
+                            "created": 1584977829692,
+                            "text": "控制组"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c1ibr21151k0",
+                            "created": 1584977836224,
+                            "text": "服务端防护"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c1ibr7wanqg0",
+                            "created": 1584977848999,
+                            "text": "内核能力机制"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c1ibrcdylls0",
+                            "created": 1584977858774,
+                            "text": "其他安全特性"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "c1ibpsu9o280",
+                    "created": 1584977737860,
+                    "text": "底层实现",
+                    "layout_mind_offset": {
+                        "x": 8,
+                        "y": 3
+                    },
+                    "expandState": "collapse"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c1ibrsn5wcw0",
+                            "created": 1584977894159,
+                            "text": "基本架构"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c1ibru8e5v40",
+                            "created": 1584977897619,
+                            "text": "命名空间"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c1ibrw3ea200",
+                            "created": 1584977901671,
+                            "text": "控制组"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c1ibrxtvdps0",
+                            "created": 1584977905448,
+                            "text": "联合文件系统"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c1ibrzp7q6g0",
+                            "created": 1584977909520,
+                            "text": "容器模式"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c1ibs37wbqg0",
+                            "created": 1584977917180,
+                            "text": "网络"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "c1ibsboby3k0",
+                    "created": 1584977935588,
+                    "text": "Etcd",
+                    "layout_mind_offset": {
+                        "x": 4,
+                        "y": 34
+                    }
+                },
+                "children": []
+            }
+        ]
+    },
+    "template": "default",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}
