@@ -1,16 +1,22 @@
 # 面向对象
 
-- 什么是对象
-- 构造函数
-- new关键字
-- Object.create 根据实例对象创建实例对象
-- this关键字
-- 原型（prototype）对象
-- 原型链
-- constructor属性
-- 构造函数的继承
-- 多重继承
-- 模块
+- [面向对象](#%e9%9d%a2%e5%90%91%e5%af%b9%e8%b1%a1)
+  - [什么是对象](#%e4%bb%80%e4%b9%88%e6%98%af%e5%af%b9%e8%b1%a1)
+  - [构造函数](#%e6%9e%84%e9%80%a0%e5%87%bd%e6%95%b0)
+  - [`new`关键字](#new%e5%85%b3%e9%94%ae%e5%ad%97)
+  - [根据实例对象创建实例对象](#%e6%a0%b9%e6%8d%ae%e5%ae%9e%e4%be%8b%e5%af%b9%e8%b1%a1%e5%88%9b%e5%bb%ba%e5%ae%9e%e4%be%8b%e5%af%b9%e8%b1%a1)
+  - [`this`关键字](#this%e5%85%b3%e9%94%ae%e5%ad%97)
+  - [使用 `this` 注意](#%e4%bd%bf%e7%94%a8-this-%e6%b3%a8%e6%84%8f)
+    - [避免多层使用this](#%e9%81%bf%e5%85%8d%e5%a4%9a%e5%b1%82%e4%bd%bf%e7%94%a8this)
+    - [避免在数组的实例方法中使用this](#%e9%81%bf%e5%85%8d%e5%9c%a8%e6%95%b0%e7%bb%84%e7%9a%84%e5%ae%9e%e4%be%8b%e6%96%b9%e6%b3%95%e4%b8%ad%e4%bd%bf%e7%94%a8this)
+    - [避免回调中使用this](#%e9%81%bf%e5%85%8d%e5%9b%9e%e8%b0%83%e4%b8%ad%e4%bd%bf%e7%94%a8this)
+  - [绑定this的方法](#%e7%bb%91%e5%ae%9athis%e7%9a%84%e6%96%b9%e6%b3%95)
+  - [原型（prototype）对象](#%e5%8e%9f%e5%9e%8bprototype%e5%af%b9%e8%b1%a1)
+    - [原型链](#%e5%8e%9f%e5%9e%8b%e9%93%be)
+    - [constructor属性](#constructor%e5%b1%9e%e6%80%a7)
+    - [构造函数的继承](#%e6%9e%84%e9%80%a0%e5%87%bd%e6%95%b0%e7%9a%84%e7%bb%a7%e6%89%bf)
+    - [多重继承](#%e5%a4%9a%e9%87%8d%e7%bb%a7%e6%89%bf)
+  - [模块](#%e6%a8%a1%e5%9d%97)
 ## 什么是对象
 对象是对现实生活中实物的抽象。
 
@@ -25,6 +31,7 @@
 ```js
 var Car = function() {
     this.price = 1000;
+    
 }
 function Cat(name){
     this.name = name;
@@ -175,7 +182,7 @@ var B = function(){
   A.call(this); // 相当于调用A方法，也就是将A中的代码放到B中来执行,也就是继承了A中的msg属性
 }
 B.prototype = Object.create(A.prototype);// 将A的原型的实例赋值给B的原型（也就是在内存中创建一份一样的对象）
-B.prototype.constructor = A; // 指定构造方法为
+B.prototype.constructor = B; // 指定构造方法为
 var b = new B();
 b.msg // instance msg
 ```

@@ -19,3 +19,4 @@ for i in f:
 f = iter([1,2,3,4])
 # map生成一个Itertor
 f = map(lambda i:i,[1,2,3,4])
+

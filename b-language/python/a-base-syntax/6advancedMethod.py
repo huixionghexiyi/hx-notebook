@@ -26,6 +26,7 @@ next(rr)
 # reduce(def,Iterable),将def作用到Iterable的所有元素上。返回一个参数
 # 拼接一个数组成字符串
 from functools import reduce
+
 def fff(x,y):
     # print(str(x)+"==="+str(y))
     return x*10+y

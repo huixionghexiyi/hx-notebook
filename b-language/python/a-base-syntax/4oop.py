@@ -68,7 +68,7 @@ def run_twice(Animal):
     Animal.run()
     Animal.run()
 # 这里很好的体现了多态和继承
-run_twice(d)
+run_twice(c)
 
 # 但是与静态语言不同的是，传递的方法可以不是Anmial，因为Anmial也是继承object的，而所有的类都继承它，所以也是一种多态的表现。
 # car 只需要有个run方法就可以了
@@ -198,11 +198,11 @@ s = Student()
 s.name = 'huixiong' # 绑定属性
 
 #定义一个方法，让实例s去绑定
-def get_age(self,age):
+def set_age(self,age):
     self.age = age
 
 from types import MethodType
-s.set_age = MethodType(get_age,s) # 给实例绑定一个方法，需要使用MethodType方法传递一个方法类型给set_age。（自己猜的）
+s.set_age = MethodType(set_age,s) # 给实例绑定一个方法，需要使用MethodType方法传递一个方法类型给set_age。（自己猜的）
 s.set_age(33)
 print(s.age)# 强调:方法是属于实例的，不属于类，另一个实例没有此方法
 
@@ -269,7 +269,7 @@ class  Student(object):
 s = Student()
 s.score = 60 # 实际上是s.set_score()
 s.score #实际上是转化为s.get_score()
-print(s.gender)
+print(s.score)
 s.gender = '女' # 没有定义setter，所以只能获取，不能修改
 
 #----------------------
@@ -314,7 +314,8 @@ print(s)
 
 #------------
 # __iter__
-# 重写这个方法可以让这个类变成可迭代对象，可以使用for in 。该方法返回一个迭代对象，然后python的for就能不断调用该迭代对象的__next__()方法拿到下一个值。
+# 重写这个方法可以让这个类变成可迭代对象，可以使用for in 。
+# 该方法返回一个迭代对象，然后python的for就能不断调用该迭代对象的__next__()方法拿到下一个值。
 class Fib(object):
     
     def __init__(self, *args, **kwargs):
@@ -326,7 +327,7 @@ class Fib(object):
     # # 当然也需要重写next
     def __next__(self):
         self.a,self.b = self.b,self.a+self.b # 即a=b,b=a+b
-        if self.a>100:
+        if self.a>5:
             raise StopIteration()
         return self.a
 
@@ -400,7 +401,7 @@ class Student(object):
         raise AttributeError("Student has no attr %s"%attr)# 这样在调用没有响应的方法时报错。不然的话就会返回默认的None
 
 s = Student()
-print(s.score())
+print(s.score)
 
 ## getattr的重要使用，动态匹配URL
 
@@ -500,7 +501,7 @@ h.hello() # 调用方法
 # metaclass，元类。
 # 如果想要创建出A类，要先根据metaclass创建出A类，再创建A类的实例.可以把metaclass看成是类的模板
 
-# 例子:使用metaclas给自定义的MyList创建一个add方法
+# 例子:使用metaclass给自定义的MyList创建一个add方法
 class ListMetaclass(type):# 习惯上metaclass类的类名这样写。斌且继承type
     def __new__(cls,name,bases,attrs):# 类对象，类名，父类集合，类的方法集合
         # 这个匿名方法就是调用当前对象的方法，并将结果放入attrs中，作为add的值

@@ -2,7 +2,8 @@
 快速排序
 基本原理：
 选择一个数作为锚点，让锚点左边的数小于他，让锚点右边的数大于他。
-然后将左边的数同样选择一个锚点，做同样的操作。
+然后将左右两边的数同样选择一个锚点，做同样的操作。
+平均复杂度：nlogn
 '''
 
 
@@ -50,6 +51,6 @@ def quick_loop(nums, left, right):
 
 if __name__ == '__main__':
     a = [1, 2, 5132, 1, 4, 214, 5, 66]
-    # quick(a, 0, len(a)-1)
-    quick_loop(a,0,len(a)-1)
+    quick(a, 0, len(a)-1)
+    # quick_loop(a,0,len(a)-1)
     print(a)

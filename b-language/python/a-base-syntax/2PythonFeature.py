@@ -11,6 +11,8 @@
 
 # 切片 按照左闭右开的取法 ,数学上表示成 [0,2)，即取 0，1 两个位置的元素
 
+from collections.abc import Iterable, Iterator
+from collections.abc import Iterable  # 引入package
 from collections.abc import Iterator, Iterable
 import os
 name = ["name1", "name2", "name3", "name4"]
@@ -69,7 +71,6 @@ for ch in 'ABC':  # 迭代字符串
 
 # 那么判断一个对象是否可迭代就变得重要了。
 
-from collections.abc import Iterable  # 引入package
 print(isinstance('abc', Iterable))  # True
 
 # 对list的下标进行循环
@@ -97,7 +98,6 @@ for x in li:
 [m + n for m in 'ABC' for n in 'XYZ']
 
 # 案例，列出当前目录下的所有文件和目录名
-import os
 [d for d in os.listdir('.')]
 
 # 同时使用两个变量生成list
@@ -110,7 +110,8 @@ L = ['Hello', 'World', 'IBM', 'Apple']
 # 生成器(generator)
 # 特点，我们不必像list生成式那样，真正的将list存到内存中。但是generator只能顺序输出，相当于，在我们使用的时候才执行。
 # 斐波那契数列的generator
-from collections.abc import Iterable,Iterator
+
+
 def fib(max):
     n, a, b = 0, 0, 1
     while n < max:
@@ -128,8 +129,8 @@ def fib(max):
 f = fib(10)  # f指向该函数,Iterable,Iterator
 # 每执行一次next，就会在yield处中断，下次再调用next就会接着终端执行
 print(next(f))
-print(isinstance(f,Iterator))
-from collections.abc import Iterable,Iterator
+from collections.abc import Iterable, Iterator
+print(isinstance(f, Iterator))
 # 使用迭代
 for n in fib(10):
     print(n)
@@ -139,7 +140,6 @@ for n in fib(10):
 # 迭代器(Itertor)
 # 属于Iterable类型的对象才能用for迭代
 # 判断的方式是
-from collections.abc import Iterable,Iterator
 isinstance([], Iterable)
 # for循环本质上就是不停的调用next()
 # 判断方法

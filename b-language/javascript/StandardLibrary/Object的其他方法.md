@@ -111,4 +111,30 @@ b.__proto__ === B.prototype //true
 b.__proto__ === b.constructor.prototype //true
 b.__proto__ === Object.getPrototypeOf(b)  //true ,getPrototypeOf是最可靠的方式
 ```
-## 
+## getOwnPropertyNames
+## hasOwnProperty
+
+获取所有属性，无论是否是继承的，是否可枚举
+```js
+function print(msg) {
+    console.log(msg)
+}
+var F = new Function()
+function getAllProps(obj) {
+    var props = {}
+    while (obj){
+        Object.getOwnPropertyNames(obj).forEach(function(p){
+            props[p] = true;
+        })
+        obj = Object.getPrototypeOf(obj);
+    }
+    return Object.getOwnPropertyNames(props);
+}
+print(getAllProps(F).length)
+```
+
+## 对象拷贝
+
+- 与原对象原型相同
+- 与源对象实例属性相同
+

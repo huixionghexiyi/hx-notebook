@@ -1,5 +1,6 @@
 '''
 归并排序
+平均时间复杂度： nlogn
 '''
 
 
@@ -33,5 +34,5 @@ def merge(left, right):
 
 if __name__ == "__main__":
     a = [5, 12, 2, 1, 22]
-    a = merge_sort1(a)
+    a = merge_sort(a)
     print(a)
