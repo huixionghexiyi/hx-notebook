@@ -1,0 +1,32 @@
+# Servlet
+
+这一节是在前一节的基础上，进行的。我们知道了`HTTP`请求过来的时候通过`socket`来完成交互的。
+
+但是 `socket`实在不方便，于是就有了 `servlet`，就是封装了socket通信，我们只需要继承 `HTTPServlet`就行了
+
+使用`Servlet`需要以下东西：
+
+1. 提供HTTP服务：Tomcat8.5.56
+2. 提供java依赖：Maven(包括maven项目)
+3. 根目录下创建`webapp`文件夹
+4. 编写Servlet请求
+5. 通过`maven`打包项目：`mvn clean package`
+6. 将`target`中的`war`包放入tomcat的`webapps`下
+7. 在`tomcat`的bin路径下使用`start.bat`启动tomcat服务
+8. 访问服务
+
+
+
+## 重定向（`Redirect`）
+
+临时重定向：`HttpResponse`中的`sendRedirect()`方法即可。
+
+永久重定向：设置响应头
+
+```java
+resp.setStatus(HttpServletResponse.SC_MOVED_PERMANENTLY); // 301
+resp.setHeader("Location", "/hello");
+```
+
+## 转发（`Forward`）
+

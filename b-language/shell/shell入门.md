@@ -137,7 +137,7 @@ do
     echo $RANDOM;
 done
 # 循环输出1到5
-for((i=1li<=5li++))
+for((i=1;i<=5;i++))
 do
     echo $i
 done
