@@ -22,4 +22,18 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
 
 在Windows的应用商城中搜索`Ubuntu`下载即可。
 
-- 
+- 其他设置
+
+```sh
+# 设置默认为root启动
+{user}ubuntu config --set-defualt-user root
+# 安装wsl2的更新内核
+ https://aka.ms/wsl2
+
+# 查看当前wsl
+wsl --list --verbose
+# 更换为wsl2
+ wsl --set-version Ubuntu-20.04 2
+```
+
+# Ubuntu调整
