@@ -37,3 +37,6 @@ wsl --list --verbose
 ```
 
 # Ubuntu调整
+
+- 配置源
+- 安装docker :https://www.jianshu.com/p/c27255ede45f
