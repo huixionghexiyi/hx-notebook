@@ -1,6 +1,3 @@
-# Spring
-
-
 # `1. IoC（Inversion of Control）控制反转`
 
 在内存中创建好一些常用的对象，注入到需要使用到的地方即可。
@@ -16,6 +13,8 @@
   - `@Order`：修饰`Bean`
     - 参数`value`为`int`，表示Spring加载`Bean`的顺序。
   - `@Scope`：修饰`Bean`，调整Bean的生命周期。配合`ConfigurableBeanFactory`中的变量使用
+
+  - `@`
 - 修饰`field`：
   - `@Autowired`：修饰Bean中的字段，即将修饰的字段注入一个对象。（同时可以修饰参数）
     - 参数`required`为`false`，表示如果找不到该字段的对象就忽略。
@@ -26,6 +25,7 @@
   - `@Primary`：当有多个同类型的`Bean`的时候，添加该注解的`Bean`作为默认`Bean`（即注入的时候没有选择名称）
   - `@PostConstruct`：修饰的方法会在 在注入字段之后 ，创建一个`Bean`之前调用。
   - `@PreDestory`：在销毁一个`Bean`之前。
+
 
 ## 工厂模式创建Bean（`FactoryBean`）
 
@@ -154,4 +154,63 @@ public class OnSmtpEnvCondition implements Condition {
 - @ConditionalOnProperty(name="app.smtp",havingValue="true") ：如果配置文件中有 `app.smtp=true`则创建
 - @ConditionalOnClass(name="javax.mail.Transport") :如果存在这个类就创建
 
-## `2. AOP`
+# `2. AOP（Aspect Oriented Programming）面向切片编程`
+
+## `基本Annotation`
+
+- 修饰 `class`：
+  - `@EnableAspectJAutoProxy`: 添加到配置类上，自动配置AOP
+  - `@Aspect`: 表示该类是一个用于AOP的类
+- 修饰 `method`：
+  - `@Before`: 执行拦截代码，再执行目标代码。（若拦截器异常，目标代码就不执行）
+  - `After`：先执行目标代码，再执行拦截代码。（无论目标是否异常，拦截代码都会执行）
+  - `@AfterReturning`：先执行目标代码，在执行拦截代码。（目标代码正常，拦截代码才会执行）
+  - `@AfterThrowing`：先执行目标代码再执行拦截代码。（只有目标代码抛出异常才执行拦截代码）
+  - `@Around`: 可以完全按控制目标代码是否执行。再目标代码前后都会执行。（可以说包含了上面所有功能）
+  - `@Transactional`: 
+
+## 使用注解
+
+
+### 方式一：使用execute
+`execute`表示织入完成路径的方法
+```java
+@Aspect
+@Component
+public class SecurityAspect {
+    @Before("execution(public * com.huixiong.service.*.*(..))")
+    public void check() {
+        if (SecurityContext.getCurrentUser() == null) {
+            throw new RuntimeException("check failed");
+        }
+    }
+    @Around("execution(public * com.huixiong.service.)")
+}
+```
+### 方式二： 使用@annotation的方式
+
+`@annotation`表示只织入添加了该注解的方法。
+```java
+@Aspect
+@Component
+public class MetricAspect {
+    @Around("@annotation(metricTime)")
+    public Object metric(ProceedingJoinPoint joinPoint, MetricTime metricTime) throws Throwable {
+        String name = metricTime.value();
+        long start = System.currentTimeMillis();
+        try {
+            return joinPoint.proceed();
+        } finally {
+            long t = System.currentTimeMillis() - start;
+            // 写入日志或发送至JMX:
+            System.err.println("[Metrics] " + name + ": " + t + "ms");
+        }
+    }
+}
+```
+## 原理与坑
+
+Spring是通过`CGLIB`实现代理类。通过创建被代理类的子类，重写所有没有 `final`的方法。并且不会初始化继承的字段。还是不太清楚。需要抽时间重新看一遍2020年7月9日
+
+
+# `Spring操作数据库`
