@@ -1,9 +1,7 @@
 # Spring
 
-1. IoC容器
 
-
-## `IoC（Inversion of Control）容器`
+# `1. IoC（Inversion of Control）控制反转`
 
 在内存中创建好一些常用的对象，注入到需要使用到的地方即可。
 
@@ -33,12 +31,127 @@
 
 实现`spring`中接口`FactoryBean`，其中 `getObject`是用来创建真正的Bean的， `getobjectType`可以指定创建的Bean的类型。
 
-## `Resource`
+## `Resource`类
 
 `class`位置：`org.springframework.core.io.Resource`
 
-` @Value("classpath:/logo.txt")`
+可以使用以下两种方式引入一个`Resource`文件：
+- ` @Value("classpath:/logo.txt")`
+- `@Value("file:/path/to/logo.txt)`
 
 资源通常放到 `src/main/resources`中。
 
 ## 注入配置
+
+### 方式一
+
+java开发中的常用配置文件是： `.properties`（key=value形式）结尾的文件。spring提供一种注解来读取配置文件。
+
+将注解`@PropertySource("app.properties")`添加到`@Configuration`配置类上。
+
+```java
+@Configuration
+@ComponentScan
+@PropertySource("app.properties") // 表示读取classpath的app.properties
+public class AppConfig {
+    @Value("${app.zone:Z}")
+    String zoneId;
+
+    @Bean
+    ZoneId createZoneId(@Value("${app.zone:Z}") String zoneId) { // 可以写入方法参数中
+        return ZoneId.of(zoneId);
+    }
+}
+```
+- "${app.zone}"表示读取key为app.zone的value，如果key不存在，启动将报错；
+- "${app.zone:Z}"表示读取key为app.zone的value，但如果key不存在，就使用默认值Z。
+
+### 方式二
+
+让一个`JavaBean`持有，再通过 `#{smtp.port:25}`注入。
+
+```java
+// 持有配置参数的javabean
+@Component
+public class SmtpConfig {
+    @Value("${smtp.host}")
+    private String host;
+
+    @Value("${smtp.port:25}")
+    private int port;
+
+    public String getHost() {
+        return host;
+    }
+
+    public int getPort() {
+        return port;
+    }
+}
+// 使用配置参数的javabean
+@Component
+public class MailService {
+    @Value("#{smtpConfig.host}")
+    private String smtpHost;
+
+    @Value("#{smtpConfig.port}")
+    private int smtpPort;
+}
+```
+## 按照条件装配
+
+根据条件的不同来装配`Bean`
+
+1. Profile
+
+```java
+@Configuration
+@ComponentScan
+public class AppConfig{
+  @Bean
+  @Profile("!test") // 表示profile不为 test
+  ZondId createZondId(){
+          return ZoneId.systemDefault();
+    }
+
+    @Bean
+    @Profile("test") // 表示profile为 test
+    ZoneId createZoneIdForTest() {
+        return ZoneId.of("America/New_York");
+    }
+}
+```
+在运行的时候加上JVM参数 `-Dspring.profiles.active=test`,指定运行环境为`test`
+
+`-Dspring.profiles.active=test,master` 表示test环境，master分支代码
+```java
+@Bean
+@Profile({ "test", "master" }) // 同时满足test和master
+ZoneId createZoneId() {
+    ...
+}
+```
+2. Conditional
+
+```java
+@Component
+@Conditional(OnSmtpEnvCondition.class)
+public class SmtpMailService implements MailService {
+    // TO-DO
+}
+```
+如果满足 `Conditional`才会创建`Bean`。其中`OnSmtpEnvCondition`类的定义如下：
+
+```java
+// 如果环境变量中存在smtp值为true，则创建
+public class OnSmtpEnvCondition implements Condition {
+    public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
+        return "true".equalsIgnoreCase(System.getenv("smtp"));
+    }
+}
+```
+其他 `Conditional`：
+- @ConditionalOnProperty(name="app.smtp",havingValue="true") ：如果配置文件中有 `app.smtp=true`则创建
+- @ConditionalOnClass(name="javax.mail.Transport") :如果存在这个类就创建
+
+## `2. AOP`
