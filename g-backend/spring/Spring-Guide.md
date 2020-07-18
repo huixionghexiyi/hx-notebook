@@ -14,7 +14,6 @@
     - 参数`value`为`int`，表示Spring加载`Bean`的顺序。
   - `@Scope`：修饰`Bean`，调整Bean的生命周期。配合`ConfigurableBeanFactory`中的变量使用
 
-  - `@`
 - 修饰`field`：
   - `@Autowired`：修饰Bean中的字段，即将修饰的字段注入一个对象。（同时可以修饰参数）
     - 参数`required`为`false`，表示如果找不到该字段的对象就忽略。
@@ -218,4 +217,8 @@ Spring是通过`CGLIB`实现代理类。通过创建被代理类的子类，重�
 基本上的第三方库都实现了 `jdbc`标准接口。所以有统一的标准访问数据库。一般有一下几步：
 
 - 创建全局链接池 `DataSource`,表示连接池。
-- 从DataSource
+- 从`DataSource`创建 `Connection`实例
+- 通过COnnection实力创建PreparedStatement实例
+- 执行SQL，若是查询，则通过ResultSet读取结果集，修改则获得int结果
+
+其中我们需要使用 `try...finally`释放资源，涉及到十五的代码需要正确提价或回滚事务。

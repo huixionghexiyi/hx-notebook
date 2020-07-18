@@ -1,7 +1,7 @@
 # WSL(Windows subsystem linux)
 
 > https://docs.microsoft.com/zh-cn/windows/wsl/
-> 
+> > WSL1 目前不支持docker，但是可以使用和windows同一个ip进行ssh连接；WSL2支持docker，但是不能和windows使用同一个ip进行ssh连接。
 顾名思义就是`Windows`的`Linux`子系统，在Window中可以使用Linux，且用同一个网络，使用同一个`IP`，端口也是一一映射。
 
 `WSL`有两个版本：`WSL1`和`WSL2`。`WSL1`不是一个完整的Linux内核，有他独特的地方，能和你的Windows进行更多的联动操作。而 `WSL2`则拥有一个完整的 `Linux`内核，其本质是部署在`hyperV`上的一个虚拟机，所以与windows的联动并不是那么多。
@@ -40,3 +40,4 @@ wsl --list --verbose
 
 - 配置源
 - 安装docker :https://www.jianshu.com/p/c27255ede45f
+
