@@ -1,8 +1,5 @@
-from functools import reduce
-
-def fff(x,y):
-    # print(str(x)+"==="+str(y))
-    return x*10+y
-
-# 输出数字 1484
-print(reduce(fff,[1,4,8,4]))
+print('hello 世界')
+print(ord('中'))
+print(chr(25991))
+print('中文'.encode('utf-8'))
+print(b'\xe4\xb8\xad\xe6\x96\x87'.decode("utf-8"))
