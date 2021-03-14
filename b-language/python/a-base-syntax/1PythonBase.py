@@ -6,7 +6,7 @@ print('hello 世界')
 print(ord('中'))
 print(chr(25991))
 print('中文'.encode('utf-8'))
-print('\xe4\xb8\xad\xe6\x96\x87'.decode("utf-8"))
+print(b'\xe4\xb8\xad\xe6\x96\x87'.decode("utf-8"))
 #一个2表示占2位，02 表示占两位，且第一位是0
 print('%2d-%02d' % (3, 1))
 #表示小数点后面取两位
